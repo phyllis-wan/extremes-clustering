@@ -52,8 +52,8 @@ for (j in 1:100){
   
   # Process data
   # Transform and truncate
-  Frechettrans<-function(x) 1/(1-ecdf(x)(x)*length(x)/(length(x)+1)) 
-  X.ext <- apply(X,2,Frechettrans)
+  Paretotrans<-function(x) 1/(1-ecdf(x)(x)*length(x)/(length(x)+1)) 
+  X.ext <- apply(X,2,Paretotrans)
   norm_vec <- function(x) sqrt(sum(x^2)) 
   norms<-apply(X.ext,1,norm_vec)
   X.ext <- X.ext[norms>quantile(norms,q),]
@@ -129,8 +129,8 @@ for (j in 1:100){
   # Process data
   
   # Transform and truncate
-  Frechettrans<-function(x) 1/(1-ecdf(x)(x)*length(x)/(length(x)+1)) 
-  X.ext <- apply(X,2,Frechettrans)
+  Paretotrans<-function(x) 1/(1-ecdf(x)(x)*length(x)/(length(x)+1)) 
+  X.ext <- apply(X,2,Paretotrans)
   norm_vec <- function(x) sqrt(sum(x^2)) 
   norms<-apply(X.ext,1,norm_vec)
   

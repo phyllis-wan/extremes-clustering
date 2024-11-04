@@ -12,8 +12,8 @@ dat <- data
 d <- ncol(data)
 
 # Transform and truncate
-Frechettrans<-function(x) 1/(1-ecdf(x)(x)*length(x)/(length(x)+1)) 
-river.ext <- apply(dat,2,Frechettrans)
+Paretotrans<-function(x) 1/(1-ecdf(x)(x)*length(x)/(length(x)+1)) 
+river.ext <- apply(dat,2,Paretotrans)
 norm_vec <- function(x) sqrt(sum(x^2)) 
 norms<-apply(river.ext,1,norm_vec)
 

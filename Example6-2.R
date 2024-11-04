@@ -11,7 +11,6 @@ library(rgl)
 ##################################################################
 
 ## Simulate Data from a linear factor model with noise
-
 set.seed(100)
 d <- 3
 b1 <- c(0.1,0.1,0.8)
@@ -41,8 +40,8 @@ for (i in 1:n){
 # Process data
 
 # Transform and truncate
-Frechettrans<-function(x) 1/(1-ecdf(x)(x)*length(x)/(length(x)+1))
-X.ext <- apply(X,2,Frechettrans)
+Paretotrans<-function(x) 1/(1-ecdf(x)(x)*length(x)/(length(x)+1))
+X.ext <- apply(X,2,Paretotrans)
 norm_vec <- function(x) sqrt(sum(x^2))
 norms<-apply(X.ext,1,norm_vec)
 
@@ -222,8 +221,8 @@ for (i in 1:n){
 # Process data
 
 # Transform and truncate
-Frechettrans<-function(x) 1/(1-ecdf(x)(x)*length(x)/(length(x)+1))
-X.ext <- apply(X,2,Frechettrans)
+Paretotrans<-function(x) 1/(1-ecdf(x)(x)*length(x)/(length(x)+1))
+X.ext <- apply(X,2,Paretotrans)
 norm_vec <- function(x) sqrt(sum(x^2))
 norms<-apply(X.ext,1,norm_vec)
 
